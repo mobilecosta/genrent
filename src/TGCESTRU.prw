@@ -19,7 +19,9 @@ User Function TGCTEST()
 	Local aParamBox	:= {}
 	Local aRet		:= {}
 	Local cTitulo   := "Rotina para impresao do relatorio de estruturas"
-	Local cComp     := Subs(Dtos(Date()), 5, 2) + Left(Dtos(Date()), 4)
+	Local aCampos   := {}
+	Local nCampos   := 1
+	Local aData     := {}
 
 	Private oExcel      := FWMSEXCEL():New()
 	Private oExcel2     := FWMSEXCEL():New()
@@ -28,18 +30,12 @@ User Function TGCTEST()
 
 	MyOpenSM0()
 
-	AADD(aParamBox,{1,"Competencia", cComp, "@R 99/9999", "NaoVazio()",,, 30, .T.})
+	AADD(aParamBox,{1,"Código do Produto", Space(Len(SB1->B1_COD)), "@R", "NaoVazio()",,, 30, .T.})
 
 	If !ParamBox(aParamBox, cTitulo, @aRet,,,,,,,, .F.) 
 		Return
 	EndIf
 
-	mv_par01 := Right(mv_par01, 4) + Left(mv_par01, 2)
-
-	cLog := 'UPDCHURN'+dtos(date()) + strtran(time(),':','')+'.XML'
-	oProcess := MsNewProcess():New({|lEnd| Processa() }, cTitulo, "Aguarde ...", .T.)
-	oProcess:Activate()
-	
 	cTitulo   := "Geração do relatorio de  estruturas"
 	cLog := 'PSESTRUC'+dtos(date()) + strtran(time(),':','')+'.XML'
 	oProcess := MsNewProcess():New({|lEnd| Process2() }, cTitulo, "Aguarde ...", .T.)
@@ -55,43 +51,45 @@ Static Function Processa()
 
 	GrLog("Selecionando Registros Estruturas de Produtos!")
       
-BeginSQL Alias "QRY"
-
-SELECT '1' as NIVEL, G1.G1_COD, G1.G1_QUANT, G1.G1_COMP, A5.A5_NOMPROD,
-SB.B1_DESC, A5.A5_SITU, A5.A5_FORNECE, A5.A5_NOMEFOR, A5.A5_XXPNUM, A5.A5_CODPRF, A5.A5_FABR
-FROM %table:SG1% G1
-INNER JOIN %table:SA5% A5 ON G1.G1_COD = A5.A5_PRODUTO
-INNER JOIN %table:SB1% SB ON G1.G1_COMP = SB.B1_COD
-WHERE G1.G1_COD = 'PA20020420' AND G1.D_E_L_E_T_ <> '*'
-UNION
-SELECT '2' as NIVEL, G2.G1_COD, G2.G1_QUANT, G2.G1_COMP, A5.A5_NOMPROD, SB.B1_DESC, A5.A5_SITU,
-A5.A5_FORNECE, A5.A5_NOMEFOR, A5.A5_XXPNUM, A5.A5_CODPRF, A5.A5_FABR
-FROM %table:SG1% G2
-INNER JOIN %table:SA5% A5 ON G2.G1_COD = A5.A5_PRODUTO
-INNER JOIN %table:SB1% SB ON G2.G1_COMP = SB.B1_COD
-WHERE G2.G1_COD IN
-(SELECT DISTINCT G1_COMP FROM %table:SG1% WHERE G1_COD = 'PA20020420' AND D_E_L_E_T_ <> '*' AND SUBSTRING(G1_COMP, 1, 2) <> 'MO') AND G2.D_E_L_E_T_ <> '*'
-UNION
-SELECT '3' as NIVEL, G3.G1_COD, G3.G1_QUANT, G3.G1_COMP, A5.A5_NOMPROD, SB.B1_DESC, A5.A5_SITU, A5.A5_FORNECE, A5.A5_NOMEFOR, A5.A5_XXPNUM, A5.A5_CODPRF, A5.A5_FABR
-FROM %table:SG1% G3
-INNER JOIN %table:SA5% A5 ON G3.G1_COD = A5.A5_PRODUTO
-INNER JOIN %table:SB1% SB ON G3.G1_COMP = SB.B1_COD
-WHERE G3.G1_COD IN
-(SELECT DISTINCT G1_COMP FROM %table:SG1% WHERE G1_COD IN
-(SELECT DISTINCT G1_COMP FROM %table:SG1% WHERE G1_COD = 'PA20020420' AND D_E_L_E_T_ <> '*' AND SUBSTRING(G1_COMP, 1, 2) <> 'MO') AND G3.D_E_L_E_T_ <> '*')
-UNION
-SELECT '4' as NIVEL, G4.G1_COD, G4.G1_QUANT, G4.G1_COMP, A5.A5_NOMPROD, SB.B1_DESC, A5.A5_SITU, A5.A5_FORNECE, A5.A5_NOMEFOR, A5.A5_XXPNUM, A5.A5_CODPRF, A5.A5_FABR
-FROM %table:SG1% G4
-INNER JOIN %table:SA5% A5 ON G4.G1_COD = A5.A5_PRODUTO
-INNER JOIN %table:SB1% SB ON G4.G1_COMP = SB.B1_COD
-WHERE G4.G1_COD IN
-(SELECT DISTINCT G1_COMP FROM %table:SG1% WHERE G1_COD IN
-(SELECT DISTINCT G1_COMP FROM %table:SG1% WHERE G1_COD IN
-(SELECT DISTINCT G1_COMP FROM %table:SG1% WHERE G1_COD IN
-(SELECT DISTINCT G1_COMP FROM %table:SG1% WHERE G4.D_E_L_E_T_ <> '*' AND G4.G1_COD = 'PA20020420' AND SUBSTRING(G1_COMP, 1, 2) <> 'MO')))) AND G4.D_E_L_E_T_ <> '*'
-ORDER BY NIVEL, G1.G1_COD,G1.G1_COMP
-
-EndSQL
+	BeginSQL Alias "QRY"
+		SELECT '1' as NIVEL, G1.G1_COD, G1.G1_QUANT, G1.G1_COMP, A5.A5_NOMPROD, SB.B1_DESC, A5.A5_SITU, A5.A5_FORNECE, 
+		       A5.A5_NOMEFOR, A5.A5_XXPNUM, A5.A5_CODPRF, A5.A5_FABR
+		  FROM %table:SG1% G1
+		 INNER JOIN %table:SA5% A5 ON G1.G1_COD = A5.A5_PRODUTO
+		 INNER JOIN %table:SB1% SB ON G1.G1_COMP = SB.B1_COD
+		 WHERE G1.G1_COD = %Exp:mv_par01% AND G1.D_E_L_E_T_ = ' '
+		 UNION
+		SELECT '2' as NIVEL, G2.G1_COD, G2.G1_QUANT, G2.G1_COMP, A5.A5_NOMPROD, SB.B1_DESC, A5.A5_SITU, A5.A5_FORNECE, 
+		       A5.A5_NOMEFOR, A5.A5_XXPNUM, A5.A5_CODPRF, A5.A5_FABR
+		  FROM %table:SG1% G2
+		 INNER JOIN %table:SA5% A5 ON G2.G1_COD = A5.A5_PRODUTO
+		 INNER JOIN %table:SB1% SB ON G2.G1_COMP = SB.B1_COD
+		 WHERE G2.G1_COD IN (SELECT DISTINCT G1_COMP FROM %table:SG1% WHERE G1_COD = %Exp:mv_par01% 
+		                        AND D_E_L_E_T_ = ' ' AND SUBSTRING(G1_COMP, 1, 2) <> 'MO') AND G2.D_E_L_E_T_ = ' '
+		UNION
+		SELECT '3' as NIVEL, G3.G1_COD, G3.G1_QUANT, G3.G1_COMP, A5.A5_NOMPROD, SB.B1_DESC, A5.A5_SITU, A5.A5_FORNECE, 
+		        A5.A5_NOMEFOR, A5.A5_XXPNUM, A5.A5_CODPRF, A5.A5_FABR
+		  FROM %table:SG1% G3
+		 INNER JOIN %table:SA5% A5 ON G3.G1_COD = A5.A5_PRODUTO
+		 INNER JOIN %table:SB1% SB ON G3.G1_COMP = SB.B1_COD
+		 WHERE G3.G1_COD IN (SELECT DISTINCT G1_COMP FROM %table:SG1% 
+		                      WHERE G1_COD IN (SELECT DISTINCT G1_COMP FROM %table:SG1% WHERE G1_COD = %Exp:mv_par01% 
+							                      AND D_E_L_E_T_ = '*' AND SUBSTRING(G1_COMP, 1, 2) <> 'MO') 
+					            AND G3.D_E_L_E_T_ = ' ')
+		 UNION
+		SELECT '4' as NIVEL, G4.G1_COD, G4.G1_QUANT, G4.G1_COMP, A5.A5_NOMPROD, SB.B1_DESC, A5.A5_SITU, A5.A5_FORNECE, 
+		       A5.A5_NOMEFOR, A5.A5_XXPNUM, A5.A5_CODPRF, A5.A5_FABR
+		  FROM %table:SG1% G4
+		 INNER JOIN %table:SA5% A5 ON G4.G1_COD = A5.A5_PRODUTO
+		 INNER JOIN %table:SB1% SB ON G4.G1_COMP = SB.B1_COD
+		 WHERE G4.G1_COD IN (SELECT DISTINCT G1_COMP FROM %table:SG1% 
+		                      WHERE G1_COD IN (SELECT DISTINCT G1_COMP FROM %table:SG1% WHERE G1_COD IN
+		                                      (SELECT DISTINCT G1_COMP FROM %table:SG1% WHERE G1_COD IN
+		                                      (SELECT DISTINCT G1_COMP FROM %table:SG1% WHERE G4.D_E_L_E_T_ = ' ' 
+											     AND G4.G1_COD = %Exp:mv_par01% 
+												 AND SUBSTRING(G1_COMP, 1, 2) <> 'MO')))) AND G4.D_E_L_E_T_ = ' '
+		ORDER BY NIVEL,G1.G1_COD,G1.G1_COMP
+	EndSQL
 
 	//	Criando as planilhas no pasta
 	oExcel:AddworkSheet(cTitulo)
@@ -100,36 +98,24 @@ EndSQL
 	oExcel:AddTable (cTitulo,"Itens")
 
 	// Criando as colunas
-	oExcel:AddColumn(cTitulo,"Itens","Codigo do Produto", 1, 1)
-	oExcel:AddColumn(cTitulo,"Itens","Quantidade do Componente", 1, 1)
-	oExcel:AddColumn(cTitulo,"Itens","Codigo do Componente", 1, 1)
-	oExcel:AddColumn(cTitulo,"Itens","Nome do Produto", 1, 1)
-	oExcel:AddColumn(cTitulo,"Itens","Descricao do Produto", 1, 1)
-	oExcel:AddColumn(cTitulo,"Itens","Classe Situacao Forn/Prod", 1, 1)
-	oExcel:AddColumn(cTitulo,"Itens","Codigo do Fornecedor", 1, 1)
-	oExcel:AddColumn(cTitulo,"Itens","Nome do Fornecedor", 1, 1)
-	oExcel:AddColumn(cTitulo,"Itens","A5_XXPNUM nao achei este campo", 1, 1)
-	oExcel:AddColumn(cTitulo,"Itens","Codigo do Produto No Fornecedor", 3, 2)
-	oExcel:AddColumn(cTitulo,"Itens","Codigo do Fabricante", 1, 1)
+	aCampos := { "G1_COD", "G1_COMP", "G1_QUANT", "A5_NOMPROD", "A5_DESC", "A5_SITU", "A5_FORNECE", "A5_NOMEFOR",;
+	             "A5_XXPNUM", "A5_FABR" }
+	For nCampos := 1 To Len(aCampos)
+		oExcel:AddColumn(cTitulo,"Itens",RetTitle(aCampos[nCampos], 1, 1)
+	Next
 	
 	GrLog("Iniciando a geração da Planilha excel! ")
-	
+
+	*/
+
+
 	While ! QRY->(Eof())
-		
-		
-			oExcel:AddRow(	cTitulo,"Itens",;
-						{	Codigo do Produto,;
-							Quantidade do Componente,;
-							Codigo do Componente,;
-							Nome do Produto,;
-							Descricao do Produto,;
-							Classe Situacao Forn/Prod,;
-							Codigo do Fornecedor,;
-							Nome do Fornecedor,;
-							A5_XXPNUM nao achei este campo,;
-							Codigo do Produto No Fornecedor,;
-							Codigo do Fabricante })
-		
+		aData := {}
+		For nCampos := 1 To Len(aCampos)
+			Aadd(aData, &("QRY->" + aCampos[nCampos]))
+		Next
+
+		oExcel:AddRow(	cTitulo,"Itens", aData)
 
 		QRY->(DbSkip())
 	EndDo  
@@ -213,4 +199,3 @@ Static Function MsgFimAju(cTitulo, cMensagem)
 	ACTIVATE MSDIALOG oDlg CENTERED
 	
 Return lOk
-
