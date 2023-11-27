@@ -1,7 +1,5 @@
 #INCLUDE "TOTVS.CH"
 
-
-
 /*/{Protheus.doc} TGCTUGEN
 Rotina para emissão do relatorio de estruturas .
 
@@ -20,11 +18,6 @@ User Function TGCTEST()
 	Local aRet		:= {}
 	Local cTitulo   := "Rotina para impresao do relatorio de estruturas"
 
-	Private oExcel      := FWMSEXCEL():New()
-	Private oExcel2     := FWMSEXCEL():New()
-	Private oExcel6     := FWMSEXCEL():New()
-	Private cLog	    := 'UPDPSV'+dtos(date()) + strtran(time(),':','')+'.XML'
-
 	MyOpenSM0()
 
 	AADD(aParamBox,{1,"Código do Produto", Space(Len(SB1->B1_COD)), "@R", "NaoVazio()",,, 30, .T.})
@@ -34,11 +27,11 @@ User Function TGCTEST()
 	EndIf
 
 	cTitulo   := "Geração do relatorio de  estruturas"
-	cLog := 'PSESTRUC'+dtos(date()) + strtran(time(),':','')+'.XML'
+	cLog      := 'PSESTRUC'+dtos(date()) + strtran(time(),':','')+'.XML'
 	oProcess := MsNewProcess():New({|lEnd| Processa() }, cTitulo, "Aguarde ...", .T.)
 	oProcess:Activate()
 
-	MsgFimAju(cTitulo, "Rotinas executadas." + Chr(13) + Chr(10) + "Logs gerados em [c:\temp\]")
+	MsgFimAju(cTitulo, "Relatório executado." + Chr(13) + Chr(10) + "Arquivo gerado em [c:\temp\]")
 
 Return
 
@@ -46,8 +39,7 @@ Static Function Processa()
     Local aCampos   := {}
 	Local nCampos   := 1
 	Local aData     := {}
-
-	Local cTitulo := "Resumo-" + Right(mv_par01, 2) + "-" + Left(mv_par01, 4)
+	Local oExcel    := FWMSEXCEL():New()
 
 	GrLog("Selecionando Registros Estruturas de Produtos!")
 
