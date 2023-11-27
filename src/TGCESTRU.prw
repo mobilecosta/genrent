@@ -38,7 +38,7 @@ User Function TGCTEST()
 
 	cTitulo   := "Geração do relatorio de  estruturas"
 	cLog := 'PSESTRUC'+dtos(date()) + strtran(time(),':','')+'.XML'
-	oProcess := MsNewProcess():New({|lEnd| Process2() }, cTitulo, "Aguarde ...", .T.)
+	oProcess := MsNewProcess():New({|lEnd| Processa() }, cTitulo, "Aguarde ...", .T.)
 	oProcess:Activate()
 
 	MsgFimAju(cTitulo, "Rotinas executadas." + Chr(13) + Chr(10) + "Logs gerados em [c:\temp\]")
@@ -98,10 +98,10 @@ Static Function Processa()
 	oExcel:AddTable (cTitulo,"Itens")
 
 	// Criando as colunas
-	aCampos := { "G1_COD", "G1_COMP", "G1_QUANT", "A5_NOMPROD", "A5_DESC", "A5_SITU", "A5_FORNECE", "A5_NOMEFOR",;
-	             "A5_XXPNUM", "A5_FABR" }
+	aCampos := { 	"G1_COD", "G1_COMP", "G1_QUANT", "A5_NOMPROD", "A5_DESC", "A5_SITU", "A5_FORNECE", "A5_NOMEFOR",;
+	    			"A5_XXPNUM","A5_FABR" }
 	For nCampos := 1 To Len(aCampos)
-		oExcel:AddColumn(cTitulo,"Itens",RetTitle(aCampos[nCampos], 1, 1)
+		oExcel:AddColumn(cTitulo,"Itens",RetTitle(aCampos[nCampos]), 1, 1)
 	Next
 	
 	GrLog("Iniciando a geração da Planilha excel! ")
