@@ -20,7 +20,7 @@ User Function TGCTEST()
 
 	MyOpenSM0()
 
-	AADD(aParamBox,{1,"Código do Produto", Space(Len(SB1->B1_COD)), "@R", "NaoVazio()",,, 30, .T.})
+    aAdd(aParamBox,{ 1,"Código do Produto", Space(Len(SB1->B1_COD))   , "@!"   ,,"SB1",, 30, .F.})
 
 	If !ParamBox(aParamBox, cTitulo, @aRet,,,,,,,, .F.)
 		Return
@@ -40,19 +40,21 @@ Static Function Processa()
 	Local nCampos   := 1
 	Local aData     := {}
 	Local oExcel    := FWMSEXCEL():New()
+	Local cTitulo   := "Estrutura"
 
 	GrLog("Selecionando Registros Estruturas de Produtos!")
+//		       A5.A5_NOMEFOR, A5.A5_XXPNUM, A5.A5_CODPRF, A5.A5_FABR
 
 	BeginSQL Alias "QRY"
 		SELECT '1' as NIVEL, G1.G1_COD, G1.G1_QUANT, G1.G1_COMP, A5.A5_NOMPROD, SB.B1_DESC, A5.A5_SITU, A5.A5_FORNECE,
-		       A5.A5_NOMEFOR, A5.A5_XXPNUM, A5.A5_CODPRF, A5.A5_FABR
+		       A5.A5_NOMEFOR, A5.A5_CODPRF, A5.A5_FABR
 		  FROM %table:SG1% G1
 		 INNER JOIN %table:SA5% A5 ON G1.G1_COD = A5.A5_PRODUTO
 		 INNER JOIN %table:SB1% SB ON G1.G1_COMP = SB.B1_COD
 		 WHERE G1.G1_COD = %Exp:mv_par01% AND G1.D_E_L_E_T_ = ' '
 		 UNION
 		SELECT '2' as NIVEL, G2.G1_COD, G2.G1_QUANT, G2.G1_COMP, A5.A5_NOMPROD, SB.B1_DESC, A5.A5_SITU, A5.A5_FORNECE,
-		       A5.A5_NOMEFOR, A5.A5_XXPNUM, A5.A5_CODPRF, A5.A5_FABR
+		       A5.A5_NOMEFOR, A5.A5_CODPRF, A5.A5_FABR
 		  FROM %table:SG1% G2
 		 INNER JOIN %table:SA5% A5 ON G2.G1_COD = A5.A5_PRODUTO
 		 INNER JOIN %table:SB1% SB ON G2.G1_COMP = SB.B1_COD
@@ -60,7 +62,7 @@ Static Function Processa()
 		                        AND D_E_L_E_T_ = ' ' AND SUBSTRING(G1_COMP, 1, 2) <> 'MO') AND G2.D_E_L_E_T_ = ' '
 		UNION
 		SELECT '3' as NIVEL, G3.G1_COD, G3.G1_QUANT, G3.G1_COMP, A5.A5_NOMPROD, SB.B1_DESC, A5.A5_SITU, A5.A5_FORNECE,
-		        A5.A5_NOMEFOR, A5.A5_XXPNUM, A5.A5_CODPRF, A5.A5_FABR
+		        A5.A5_NOMEFOR, A5.A5_CODPRF, A5.A5_FABR
 		  FROM %table:SG1% G3
 		 INNER JOIN %table:SA5% A5 ON G3.G1_COD = A5.A5_PRODUTO
 		 INNER JOIN %table:SB1% SB ON G3.G1_COMP = SB.B1_COD
@@ -70,7 +72,7 @@ Static Function Processa()
 					            AND G3.D_E_L_E_T_ = ' ')
 		 UNION
 		SELECT '4' as NIVEL, G4.G1_COD, G4.G1_QUANT, G4.G1_COMP, A5.A5_NOMPROD, SB.B1_DESC, A5.A5_SITU, A5.A5_FORNECE,
-		       A5.A5_NOMEFOR, A5.A5_XXPNUM, A5.A5_CODPRF, A5.A5_FABR
+		       A5.A5_NOMEFOR, A5.A5_CODPRF, A5.A5_FABR
 		  FROM %table:SG1% G4
 		 INNER JOIN %table:SA5% A5 ON G4.G1_COD = A5.A5_PRODUTO
 		 INNER JOIN %table:SB1% SB ON G4.G1_COMP = SB.B1_COD
@@ -80,7 +82,7 @@ Static Function Processa()
 		                                      (SELECT DISTINCT G1_COMP FROM %table:SG1% WHERE G4.D_E_L_E_T_ = ' '
 											     AND G4.G1_COD = %Exp:mv_par01%
 												 AND SUBSTRING(G1_COMP, 1, 2) <> 'MO')))) AND G4.D_E_L_E_T_ = ' '
-		ORDER BY NIVEL,G1.G1_COD,G1.G1_COMP
+		ORDER BY NIVEL,G1_COD,G1_COMP
 	EndSQL
 
 	//	Criando as planilhas no pasta
