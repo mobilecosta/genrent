@@ -1,0 +1,1073 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Microsiga Protheus</Author>
+  <LastAuthor>Framework Time</LastAuthor>
+  <Created>2011-11-11T00:00:00Z</Created>
+  <Version>14.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>11820</WindowHeight>
+  <WindowWidth>18195</WindowWidth>
+  <WindowTopX>480</WindowTopX>
+  <WindowTopY>75</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="TITLE">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="12" ss:Color="#1F497D"  ss:Bold='1'  />
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3" ss:Color="#FFFFFF"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="HEADER">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#4F81BD"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#4F81BD"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#FFFFFF"  ss:Bold='1'  />
+   <Interior ss:Color="#4F81BD" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="LINEA">
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#B8CCE4"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#B8CCE4"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000" />
+   <Interior ss:Color="#B8CCE4" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="LINEB">
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#DCE6F1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#DCE6F1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000" />
+   <Interior ss:Color="#DCE6F1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="LINEALeftGeneral" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+
+  </Style>
+  <Style ss:ID="LINEALeftNumber" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00_-;\-* #,##0.00_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEALeftMonetario" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-&quot;R$&quot;\ * #,##0.00_-;\-&quot;R$&quot;\ * #,##0.00_-;_-&quot;R$&quot;\ * &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEALeftDateTime" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="Short Date"/>
+  </Style>
+  <Style ss:ID="LINEALeftNumberDecimal0" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0_-;\-* #,##0_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEALeftNumberDecimal1" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.0_-;\-* #,##0.0_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEALeftNumberDecimal2" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00_-;\-* #,##0.00_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEALeftNumberDecimal3" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.000_-;\-* #,##0.000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEALeftNumberDecimal4" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.0000_-;\-* #,##0.0000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEALeftNumberDecimal5" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00000_-;\-* #,##0.00000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEALeftNumberDecimal6" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.000000_-;\-* #,##0.000000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEALeftNumberDecimal7" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.0000000_-;\-* #,##0.0000000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEALeftNumberDecimal8" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00000000_-;\-* #,##0.00000000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEACenterGeneral" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+
+  </Style>
+  <Style ss:ID="LINEACenterNumber" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00_-;\-* #,##0.00_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEACenterMonetario" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-&quot;R$&quot;\ * #,##0.00_-;\-&quot;R$&quot;\ * #,##0.00_-;_-&quot;R$&quot;\ * &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEACenterDateTime" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="Short Date"/>
+  </Style>
+  <Style ss:ID="LINEACenterNumberDecimal0" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0_-;\-* #,##0_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEACenterNumberDecimal1" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.0_-;\-* #,##0.0_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEACenterNumberDecimal2" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00_-;\-* #,##0.00_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEACenterNumberDecimal3" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.000_-;\-* #,##0.000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEACenterNumberDecimal4" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.0000_-;\-* #,##0.0000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEACenterNumberDecimal5" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00000_-;\-* #,##0.00000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEACenterNumberDecimal6" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.000000_-;\-* #,##0.000000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEACenterNumberDecimal7" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.0000000_-;\-* #,##0.0000000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEACenterNumberDecimal8" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00000000_-;\-* #,##0.00000000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEARightGeneral" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+
+  </Style>
+  <Style ss:ID="LINEARightNumber" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00_-;\-* #,##0.00_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEARightMonetario" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-&quot;R$&quot;\ * #,##0.00_-;\-&quot;R$&quot;\ * #,##0.00_-;_-&quot;R$&quot;\ * &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEARightDateTime" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="Short Date"/>
+  </Style>
+  <Style ss:ID="LINEARightNumberDecimal0" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0_-;\-* #,##0_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEARightNumberDecimal1" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.0_-;\-* #,##0.0_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEARightNumberDecimal2" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00_-;\-* #,##0.00_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEARightNumberDecimal3" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.000_-;\-* #,##0.000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEARightNumberDecimal4" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.0000_-;\-* #,##0.0000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEARightNumberDecimal5" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00000_-;\-* #,##0.00000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEARightNumberDecimal6" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.000000_-;\-* #,##0.000000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEARightNumberDecimal7" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.0000000_-;\-* #,##0.0000000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEARightNumberDecimal8" ss:Parent="LINEA">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00000000_-;\-* #,##0.00000000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBLeftGeneral" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+
+  </Style>
+  <Style ss:ID="LINEBLeftNumber" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00_-;\-* #,##0.00_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBLeftMonetario" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-&quot;R$&quot;\ * #,##0.00_-;\-&quot;R$&quot;\ * #,##0.00_-;_-&quot;R$&quot;\ * &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBLeftDateTime" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="Short Date"/>
+  </Style>
+  <Style ss:ID="LINEBLeftNumberDecimal0" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0_-;\-* #,##0_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBLeftNumberDecimal1" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.0_-;\-* #,##0.0_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBLeftNumberDecimal2" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00_-;\-* #,##0.00_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBLeftNumberDecimal3" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.000_-;\-* #,##0.000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBLeftNumberDecimal4" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.0000_-;\-* #,##0.0000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBLeftNumberDecimal5" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00000_-;\-* #,##0.00000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBLeftNumberDecimal6" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.000000_-;\-* #,##0.000000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBLeftNumberDecimal7" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.0000000_-;\-* #,##0.0000000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBLeftNumberDecimal8" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00000000_-;\-* #,##0.00000000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBCenterGeneral" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+
+  </Style>
+  <Style ss:ID="LINEBCenterNumber" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00_-;\-* #,##0.00_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBCenterMonetario" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-&quot;R$&quot;\ * #,##0.00_-;\-&quot;R$&quot;\ * #,##0.00_-;_-&quot;R$&quot;\ * &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBCenterDateTime" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="Short Date"/>
+  </Style>
+  <Style ss:ID="LINEBCenterNumberDecimal0" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0_-;\-* #,##0_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBCenterNumberDecimal1" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.0_-;\-* #,##0.0_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBCenterNumberDecimal2" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00_-;\-* #,##0.00_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBCenterNumberDecimal3" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.000_-;\-* #,##0.000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBCenterNumberDecimal4" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.0000_-;\-* #,##0.0000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBCenterNumberDecimal5" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00000_-;\-* #,##0.00000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBCenterNumberDecimal6" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.000000_-;\-* #,##0.000000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBCenterNumberDecimal7" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.0000000_-;\-* #,##0.0000000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBCenterNumberDecimal8" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00000000_-;\-* #,##0.00000000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBRightGeneral" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+
+  </Style>
+  <Style ss:ID="LINEBRightNumber" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00_-;\-* #,##0.00_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBRightMonetario" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-&quot;R$&quot;\ * #,##0.00_-;\-&quot;R$&quot;\ * #,##0.00_-;_-&quot;R$&quot;\ * &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBRightDateTime" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="Short Date"/>
+  </Style>
+  <Style ss:ID="LINEBRightNumberDecimal0" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0_-;\-* #,##0_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBRightNumberDecimal1" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.0_-;\-* #,##0.0_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBRightNumberDecimal2" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00_-;\-* #,##0.00_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBRightNumberDecimal3" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.000_-;\-* #,##0.000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBRightNumberDecimal4" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.0000_-;\-* #,##0.0000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBRightNumberDecimal5" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00000_-;\-* #,##0.00000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBRightNumberDecimal6" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.000000_-;\-* #,##0.000000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBRightNumberDecimal7" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.0000000_-;\-* #,##0.0000000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="LINEBRightNumberDecimal8" ss:Parent="LINEB">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+<NumberFormat ss:Format="_-* #,##0.00000000_-;\-* #,##0.00000000_-;_-* &quot;-&quot;??_-;_-@_-"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="1-Estrutura">
+  <Table ss:ExpandedColumnCount="9" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Width="79.2"/>
+   <Column ss:Width="79.2"/>
+   <Column ss:Width="79.2"/>
+   <Column ss:Width="396"/>
+   <Column ss:Width="79.2"/>
+   <Column ss:Width="79.2"/>
+   <Column ss:Width="257.4"/>
+   <Column ss:Width="85.8"/>
+   <Column ss:Width="270.6"/>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="TITLE" ss:MergeAcross="8"><Data ss:Type="String">Itens</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="HEADER"><Data ss:Type="String">Código      </Data></Cell>
+    <Cell ss:StyleID="HEADER"><Data ss:Type="String">Componente  </Data></Cell>
+    <Cell ss:StyleID="HEADER"><Data ss:Type="String">Quantidade  </Data></Cell>
+    <Cell ss:StyleID="HEADER"><Data ss:Type="String">Descricao   </Data></Cell>
+    <Cell ss:StyleID="HEADER"><Data ss:Type="String">Situacao    </Data></Cell>
+    <Cell ss:StyleID="HEADER"><Data ss:Type="String">Fornecedor  </Data></Cell>
+    <Cell ss:StyleID="HEADER"><Data ss:Type="String">Nome        </Data></Cell>
+    <Cell ss:StyleID="HEADER"><Data ss:Type="String">PN Fornecedo</Data></Cell>
+    <Cell ss:StyleID="HEADER"><Data ss:Type="String">Fabricante  </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PA20020420</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">MODG040027</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">RECEPTORES DE SINAL DE TELEVISAO VIA SATELITE - MIDIABOX  B7</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001652</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">L S C DA SILVA PRADO ME</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">5687442</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PA20020420</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">MODM040027</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">RECEPTORES DE SINAL DE TELEVISAO VIA SATELITE - MIDIABOX  B7</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">001652</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">L S C DA SILVA PRADO ME</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">5687442</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PA20020420</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PF72080017</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">RECEPTORES DE SINAL DE TELEVISAO VIA SATELITE - MIDIABOX  B7</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001652</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">L S C DA SILVA PRADO ME</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">5687442</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PA20020420</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">RECEPTORES DE SINAL DE TELEVISAO VIA SATELITE - MIDIABOX  B7</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">001652</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">L S C DA SILVA PRADO ME</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">5687442</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PA20020420</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71080017</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">RECEPTORES DE SINAL DE TELEVISAO VIA SATELITE - MIDIABOX  B7</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001652</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">L S C DA SILVA PRADO ME</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">5687442</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PA20020420</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71150020</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">RECEPTORES DE SINAL DE TELEVISAO VIA SATELITE - MIDIABOX  B7</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">001652</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">L S C DA SILVA PRADO ME</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">5687442</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PA20020420</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71400017</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">RECEPTORES DE SINAL DE TELEVISAO VIA SATELITE - MIDIABOX  B7</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001652</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">L S C DA SILVA PRADO ME</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">5687442</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PA20020420</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71620027</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">RECEPTORES DE SINAL DE TELEVISAO VIA SATELITE - MIDIABOX  B7</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">001652</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">L S C DA SILVA PRADO ME</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">5687442</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PA20020420</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71630027</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">RECEPTORES DE SINAL DE TELEVISAO VIA SATELITE - MIDIABOX  B7</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001652</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">L S C DA SILVA PRADO ME</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">5687442</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">BR55020035</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.03.095</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">BR55020035</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">c</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">XYX-2501 4-22</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">SHENZHEN XINGYUANXING TECHNOLOGY CO., LTD</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">MA57320030</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.03.095</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">MA57320030</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">c</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">XYX-2501 4-22</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">SHENZHEN XINGYUANXING TECHNOLOGY CO., LTD</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">MODG030040</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.03.095</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">MODG030040</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">c</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">XYX-2501 4-22</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">SHENZHEN XINGYUANXING TECHNOLOGY CO., LTD</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">MODM030040</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.03.095</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">MODM030040</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">c</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">XYX-2501 4-22</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">SHENZHEN XINGYUANXING TECHNOLOGY CO., LTD</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PF72030005</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.03.095</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PF72030005</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">c</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">XYX-2501 4-22</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">SHENZHEN XINGYUANXING TECHNOLOGY CO., LTD</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PF72040005</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.03.095</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PF72040005</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">c</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">XYX-2501 4-22</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">SHENZHEN XINGYUANXING TECHNOLOGY CO., LTD</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PF72220005</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.03.095</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PF72220005</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">c</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">XYX-2501 4-22</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">SHENZHEN XINGYUANXING TECHNOLOGY CO., LTD</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71220005</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.03.095</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71220005</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">c</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">XYX-2501 4-22</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">SHENZHEN XINGYUANXING TECHNOLOGY CO., LTD</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71310005</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.03.095</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71310005</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">c</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">XYX-2501 4-22</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">SHENZHEN XINGYUANXING TECHNOLOGY CO., LTD</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PL56210055</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.03.095</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PL56210055</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">c</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">XYX-2501 4-22</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">SHENZHEN XINGYUANXING TECHNOLOGY CO., LTD</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PL56240035</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.03.095</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PL56240035</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">c</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">XYX-2501 4-22</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">SHENZHEN XINGYUANXING TECHNOLOGY CO., LTD</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PL56280035</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.03.095</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PL56280035</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">c</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">XYX-2501 4-22</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">SHENZHEN XINGYUANXING TECHNOLOGY CO., LTD</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PL56420035</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.03.095</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PL56420035</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">c</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">XYX-2501 4-22</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">SHENZHEN XINGYUANXING TECHNOLOGY CO., LTD</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PL56500030</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.03.095</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PL56500030</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">c</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">XYX-2501 4-22</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">SHENZHEN XINGYUANXING TECHNOLOGY CO., LTD</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PL56550045</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.03.095</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71030015</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PL56550045</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI - CONTROLE REMOTO MIDIABOX B5 (25 TECLAS)</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">c</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">XYX-2501 4-22</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">SHENZHEN XINGYUANXING TECHNOLOGY CO., LTD</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71150020</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">MODG030047</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI -  FTE CHAV EXTERNA MONTADA B7</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.05.076</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71150020</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">MODG030047</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI -  FTE CHAV EXTERNA MONTADA B7</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">KELI MODEL</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71150020</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">MODM040047</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI -  FTE CHAV EXTERNA MONTADA B7</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.05.076</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71150020</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">MODM040047</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI -  FTE CHAV EXTERNA MONTADA B7</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">KELI MODEL</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71150020</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PF72000007</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI -  FTE CHAV EXTERNA MONTADA B7</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.05.076</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71150020</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PF72000007</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI -  FTE CHAV EXTERNA MONTADA B7</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">KELI MODEL</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71150020</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PF72110007</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI -  FTE CHAV EXTERNA MONTADA B7</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.05.076</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71150020</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PF72110007</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI -  FTE CHAV EXTERNA MONTADA B7</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">KELI MODEL</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71150020</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71070417</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI -  FTE CHAV EXTERNA MONTADA B7</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.05.076</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71150020</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71070417</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI -  FTE CHAV EXTERNA MONTADA B7</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">KELI MODEL</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71150020</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71100007</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI -  FTE CHAV EXTERNA MONTADA B7</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">000588</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">H.R. COMP.COM. DE COMP ELETRONICOS LTDA</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">10.05.076</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71150020</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71100007</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI -  FTE CHAV EXTERNA MONTADA B7</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001702</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">CIPEM USA INC</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">KELI MODEL</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71790019</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">MODG040032</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI - VISOR MIDIABOX HDTV B5/B5+</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">001512</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">TIN CHANG HOLDINGS LIMITED</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71790019</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">TIN CHANG HOLDINGS LIMITED</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71790019</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">MODM040042</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI - VISOR MIDIABOX HDTV B5/B5+</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001512</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">TIN CHANG HOLDINGS LIMITED</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71790019</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">TIN CHANG HOLDINGS LIMITED</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71790019</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PL55600005</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">0.00022</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI - VISOR MIDIABOX HDTV B5/B5+</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">001512</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">TIN CHANG HOLDINGS LIMITED</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71790019</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">TIN CHANG HOLDINGS LIMITED</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71790019</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PL55600005</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">0.0003</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI - VISOR MIDIABOX HDTV B5/B5+</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001512</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">TIN CHANG HOLDINGS LIMITED</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71790019</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">TIN CHANG HOLDINGS LIMITED</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71790019</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PL55600005</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">0.00055</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI - VISOR MIDIABOX HDTV B5/B5+</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">001512</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">TIN CHANG HOLDINGS LIMITED</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71790019</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">TIN CHANG HOLDINGS LIMITED</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71790019</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PL55600005</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">0.08888</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI - VISOR MIDIABOX HDTV B5/B5+</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001512</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">TIN CHANG HOLDINGS LIMITED</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71790019</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">TIN CHANG HOLDINGS LIMITED</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71790019</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PL55600026</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="Number">0.0003</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI - VISOR MIDIABOX HDTV B5/B5+</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">001512</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">TIN CHANG HOLDINGS LIMITED</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">PI71790019</Data></Cell>
+    <Cell ss:StyleID="LINEBLeftGeneral"><Data ss:Type="String">TIN CHANG HOLDINGS LIMITED</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="1">
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71790019</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PL55600026</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="Number">0.655</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI - VISOR MIDIABOX HDTV B5/B5+</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">C</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">001512</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">TIN CHANG HOLDINGS LIMITED</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">PI71790019</Data></Cell>
+    <Cell ss:StyleID="LINEALeftGeneral"><Data ss:Type="String">TIN CHANG HOLDINGS LIMITED</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.31496062000000002"/>
+    <Footer x:Margin="0.31496062000000002"/>
+    <PageMargins x:Bottom="0.78740157499999996" x:Left="0.511811024"
+     x:Right="0.511811024" x:Top="0.78740157499999996"/>
+   </PageSetup>
+   <Unsynced/>
+   <Selected/>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>
