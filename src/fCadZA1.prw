@@ -33,8 +33,55 @@ oBrowse:SetWalkThru(.F.)
 oBrowse:SetAlias(cString)
 oBrowse:DisableDetails()
 
+AxAltera(cAlias,nReg,nOpc,aAcho,aCpos,nColMens,cMensagem,cTudoOk,cTransact,cFunc,;
+                aButtons,aParam,aAuto,lVirtual,lMaximized,cTela,lPanelFin,oFather,aDim,uArea,lFlat)
+
 /*/ {Protheus.doc} Function
-Gravação do modelo da atualização A5_FABR com Z1_DESC, pelo campo A5_XFABR
+// Função estática que faz o reclock e o update
+
+Static Function FuncaoReclockEUpdate()
+   Local cAlias := "SA5"
+   Local nReg := 1  // Número do registro a ser reclockado
+   Local cA5_FABR := M->A5_XFABR
+   Local cZ1_DESC := M->Z1_DESC
+   Local nZ1_COD := M->Z1_COD
+   Local cNovoValorA5_XFABR := "NovoValor"
+
+   // Faz o reclock (bloqueio do registro)
+   DbRecLock(cAlias, nReg)
+
+   // Construa a instrução SQL para realizar o update
+   Local cSQL := "UPDATE " + RetSqlName(cAlias) + ;
+                 " SET A5_XFABR = '" + cNovoValorA5_XFABR + "'" + ;
+                 " WHERE A5_FABR = '" + cA5_FABR + "' AND Z1_DESC = '" + cZ1_DESC + "' AND Z1_COD = " + AllTrim(Str(nZ1_COD))
+
+   // Execução do update
+   If (TCSQLExec(cSQL) <> 0)
+      // Se houver um erro, emita uma mensagem de erro
+      Help(,, "MinhaFuncaoReclockEUpdate",, "Erro ao atualizar A5_XFABR", 1, 0)
+      // Desfaça o reclock
+      DbRecUnlock(cAlias, nReg)
+      Return .F.
+   EndIf
+
+   // Faz o unlock (liberação do registro)
+   DbRecUnlock(cAlias, nReg)
+
+   Return .T.
+EndFunction
+
+// Função principal que chama AxInclui
+User Function AXFuncaoPrincipal()
+   Local cTudoOk := "FuncaoReclockEUpdate"
+   Local cAlias := "SA5"
+
+   // Parâmetros adicionais conforme necessário
+   Local aParam := []
+
+   // Chama AxInclui passando a função de reclock e update como cTudoOk
+   AxInclui(cAlias, 0, aParam, ,,cTudoOk)
+
+EndFunction
 
 @author 
 @version P12
@@ -42,60 +89,6 @@ Gravação do modelo da atualização A5_FABR com Z1_DESC, pelo campo A5_XFABR
 @return oModel
 /*/
 //-----------------------------------------------------------------------------
-Class AtualizarA5Model
-   Data A5_XFABR, A5_FABR, ZA1_DESC, ZA1_COD,cSQL
-
-   Method AtualizarA5_FABR(cA5_XFABR)
-   Local cSQL := ""
- 
-      // Construa a instrução SQL para atualizar A5_FABR com ZA1_DESC
-      cSQL := "UPDATE " + RetSqlName("SA5") + ;
-              " SET A5_FABR = ZA1_DESC" + ;
-              " WHERE A5_XFABR = '" + cA5_XFABR + "'"
-
-      // Início da transação
-      BeginTrans()
-
-      // Execução da atualização
-      If (TCSQLExec(cSQL) <> 0)
-         // Se houver um erro, emita uma mensagem de erro
-         Help(,, "SeuModel:AtualizarA5_FABR",, "Erro ao atualizar A5_FABR", 1, 0)
-         // Desfaça a transação
-         Rollback()
-         Return .F.
-      EndIf
-
-      // Fim da transação
-      Commit()
-      Return .T.
-   EndMethod
-
-   Method AtualizarA5_XFABR(cA5_FABR, cZA1_DESC, cZA1_COD)
-      Local cSQL := ""
-
-      // Construa a instrução SQL para atualizar A5_XFABR
-      cSQL := "UPDATE " + RetSqlName("ZA1") + ;
-              " SET A5_XFABR = 'ZA1_DESC'" + ;
-              " WHERE A5_FABR = '" + cA5_FABR + "' AND ZA1_DESC = '" + cZA1_DESC + "' AND ZA1_COD = '" + cZA1_COD + "'"
-
-      // Início da transação
-      BeginTrans()
-
-      // Execução da atualização
-      If (TCSQLExec(cSQL) <> 0)
-         // Se houver um erro, emita uma mensagem de erro
-         Help(,, "SeuModel:AtualizarA5_XFABR",, "Erro ao atualizar A5_XFABR", 1, 0)
-         // Desfaça a transação
-         Rollback()
-         Return .F.
-      EndIf
-
-      // Fim da transação
-      Commit()
-      Return .T.
-   EndMethod
-EndClass
-
 
 
 
@@ -113,21 +106,3 @@ ADD OPTION aRotina Title 'Alterar' Action "AxAltera" OPERATION 4 ACCESS 0
 ADD OPTION aRotina Title 'Excluir' Action "AxDeleta" OPERATION 5 ACCESS 0
 Return aRotina
 **************************************************************************************************************************************************************************
-Class AtualizarA5Controller
-   Method AtualizarCampos(cA5_XFABR, cA5_FABR, cZ1_DESC, cZ1_COD)
-      Local oModel := AtualizarA5Model():New()
-
-      // Chamada para atualizar A5_FABR com Z1_DESC
-      If !oModel:AtualizarA5_FABR(cA5_XFABR)
-         // Tratar erro, se necessário
-         Return
-      EndIf
-
-      // Chamada para atualizar A5_XFABR com base em A5_FABR, Z1_DESC e Z1_COD
-      If !oModel:AtualizarA5_XFABR(cA5_FABR, cZ1_DESC, cZ1_COD)
-         // Tratar erro, se necessário
-         Return
-      EndIf
-   EndMethod
-EndClass
-
