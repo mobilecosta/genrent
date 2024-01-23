@@ -1,5 +1,3 @@
-#INCLUDE "RWMAKE.CH"
-#INCLUDE "PROTHEUS.CH"
 #INCLUDE "TOTVS.CH"
 #INCLUDE "FWMBROWSE.CH"
 #INCLUDE "FWMVCDEF.CH"
@@ -32,77 +30,65 @@ oBrowse:SetDescription(cRotina)
 oBrowse:SetWalkThru(.F.)
 oBrowse:SetAlias(cString)
 oBrowse:DisableDetails()
+// - Ativa o Objeto Browser para sua exibicao.
+oBrowse:Activate()
+Return
 
-AxAltera(cAlias,nReg,nOpc,aAcho,aCpos,nColMens,cMensagem,cTudoOk,cTransact,cFunc,;
-                aButtons,aParam,aAuto,lVirtual,lMaximized,cTela,lPanelFin,oFather,aDim,uArea,lFlat)
+***********************
+// Monta Painel de Controle do Browser Principal.
+Static Function MenuDef()
+Local aRotina := {}
+
+// - Adciona itens ao Array aRotina.
+ADD OPTION aRotina Title 'Pesquisar' Action "AxPesqui" OPERATION 1 ACCESS 0
+ADD OPTION aRotina Title 'Visualizar' Action "AxVisual" OPERATION 2 ACCESS 0
+ADD OPTION aRotina Title 'Incluir' Action "fCadZA1M(3)" OPERATION 3 ACCESS 0
+ADD OPTION aRotina Title 'Alterar' Action "fCadZA1M(4)" OPERATION 4 ACCESS 0
+ADD OPTION aRotina Title 'Excluir' Action "fCadZA1M(5)" OPERATION 5 ACCESS 0
+
+Return aRotina
+**************************************************************************************************************************************************************************
+
+/*
+AxInclui(cAlias,nReg,nOpc,aAcho,cFunc,aCpos,cTudoOk,lF3,cTransact,aButtons,aParam,aAuto,lVirtual,lMaximized,cTela,lPanelFin,oFather,aDim,uArea,lFlat,lSubst)
+AxAltera(cAlias,nReg,nOpc,aAcho,aCpos,nColMens,cMensagem,cTudoOk,cTransact,cFunc,aButtons,aParam,aAuto,lVirtual,lMaximized,cTela,lPanelFin,oFather,aDim,uArea,lFlat)
+Function AxDeleta(cAlias,nReg,nOpc,cTransact,aCpos,aButtons,aParam,aAuto,lMaximized,cTela,aAcho,lPanelFin,oFather,aDim, lFlat)				
+*/				
+
+// Função principal que chama AxInclui
+User Function fCadZA1M(nOpc)
+	Local cTudoOk := "U_fUpdZA1()"
+	// Parâmetros adicionais conforme necessário
+	Local aParam := []
+
+	If nOpc == 3	// Inclusão
+		AxInclui("ZA1", 0, aParam, ,,cTudoOk)
+	ElseIf nOpc == 4
+		AxAltera("ZA1", ZA1->(Recno()), aParam, ,,cTudoOk)
+	ElseIf nOpc == 5
+		AxDeleta("ZA1", ZA1->(Recno()), 5)
+	EndIf
+
+Return
+
 
 /*/ {Protheus.doc} Function
 // Função estática que faz o reclock e o update
 
-Static Function FuncaoReclockEUpdate()
-   Local cAlias := "SA5"
-   Local nReg := 1  // Número do registro a ser reclockado
+User Function fUpdZA1()
    Local cA5_FABR := M->A5_XFABR
    Local cZ1_DESC := M->Z1_DESC
-   Local nZ1_COD := M->Z1_COD
-   Local cNovoValorA5_XFABR := "NovoValor"
-
-   // Faz o reclock (bloqueio do registro)
-   DbRecLock(cAlias, nReg)
 
    // Construa a instrução SQL para realizar o update
-   Local cSQL := "UPDATE " + RetSqlName(cAlias) + ;
-                 " SET A5_XFABR = '" + cNovoValorA5_XFABR + "'" + ;
-                 " WHERE A5_FABR = '" + cA5_FABR + "' AND Z1_DESC = '" + cZ1_DESC + "' AND Z1_COD = " + AllTrim(Str(nZ1_COD))
+   Local cSQL := "UPDATE " + RetSqlName("SA5") + ;
+                    "SET A5_FABR = '" + cZ1_DESC + "'" + ;
+                 " WHERE A5_FILIAL = '" + xFilial("SA5") + "' AND A5_XFABR = '" + cA5_FABR + "'"
 
    // Execução do update
    If (TCSQLExec(cSQL) <> 0)
       // Se houver um erro, emita uma mensagem de erro
-      Help(,, "MinhaFuncaoReclockEUpdate",, "Erro ao atualizar A5_XFABR", 1, 0)
-      // Desfaça o reclock
-      DbRecUnlock(cAlias, nReg)
+      Help(,, "fUpdZA1",, "Erro ao atualizar A5_FABR", 1, 0)
       Return .F.
    EndIf
 
-   // Faz o unlock (liberação do registro)
-   DbRecUnlock(cAlias, nReg)
-
-   Return .T.
-EndFunction
-
-// Função principal que chama AxInclui
-User Function AXFuncaoPrincipal()
-   Local cTudoOk := "FuncaoReclockEUpdate"
-   Local cAlias := "SA5"
-
-   // Parâmetros adicionais conforme necessário
-   Local aParam := []
-
-   // Chama AxInclui passando a função de reclock e update como cTudoOk
-   AxInclui(cAlias, 0, aParam, ,,cTudoOk)
-
-EndFunction
-
-@author 
-@version P12
-@since 23/01/2024
-@return oModel
-/*/
-//-----------------------------------------------------------------------------
-
-
-
-// - Ativa o Objeto Browser para sua exibicao.
-oBrowse:Activate()
-Return
-***********************
-// Monta Painel de Controle do Browser Principal.
-Static Function MenuDef()
-Local aRotina   := {}
-
-// - Adciona itens ao Array aRotina.
-ADD OPTION aRotina Title 'Incluir' Action "AxInclui" OPERATION 3 ACCESS 0
-ADD OPTION aRotina Title 'Alterar' Action "AxAltera" OPERATION 4 ACCESS 0
-ADD OPTION aRotina Title 'Excluir' Action "AxDeleta" OPERATION 5 ACCESS 0
-Return aRotina
-**************************************************************************************************************************************************************************
+Return .T.
