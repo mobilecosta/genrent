@@ -34,6 +34,48 @@ oBrowse:SetWalkThru(.F.)
 oBrowse:SetAlias(cString)
 oBrowse:DisableDetails()
 
+/*/ {Protheus.doc} Function
+Gravação do modelo da atualização A5_FABR com Z1_DESC, pelo campo A5_XFABR
+
+@author 
+@version P12
+@since 23/01/2024
+@return oModel
+/*/
+//-----------------------------------------------------------------------------
+Static Function AtualizarA5_XFABR(oModel)
+Local lRet := .T. 
+Local cSQL := ""
+
+If oModel == Nil	//-- É realizada chamada com modelo nulo para verificar se a função existe
+	Return lRet 
+EndIf
+
+Local cA5_FABR := oModel:GetValue("A5_FABR")
+Local cZ1_DESC := oModel:GetValue("Z1_DESC")
+Local cZ1_COD := oModel:GetValue("Z1_COD")
+
+BeginTran()
+
+FwFormAtualizarA5_XFABR(oModel)  // Grava o Modelo     
+
+cSQL := "UPDATE " + RetSqlName("Z1_DESC") + " SET A5_FABR = 'Z1_DESC' " +;
+        " WHERE A5_XFABR = ' ' AND A5_FABR = '" + cA5_FABR + "' AND Z1_DESC = '" + cZ1_DESC + "' AND Z1_COD = '" + cZ1_COD + "'" 
+                                                  
+If (nError := TCSQLExec(cSQL)) <> 0
+	// Se houver erro, emita uma mensagem
+   Help(,,"AtualizarA5_XFABR",, AllTrim(Str(nError)) + "-" + TCSQLError(), 1, 0)
+   //Desfaça a transação
+   DisarmTran()
+   // Atualização não foi bem-sucedida
+   lRet := .F. 
+EndIf
+
+EndTran()
+
+Return lRet
+
+
 // - Ativa o Objeto Browser para sua exibicao.
 oBrowse:Activate()
 Return
@@ -47,3 +89,4 @@ ADD OPTION aRotina Title 'Incluir' Action "AxInclui" OPERATION 3 ACCESS 0
 ADD OPTION aRotina Title 'Alterar' Action "AxAltera" OPERATION 4 ACCESS 0
 ADD OPTION aRotina Title 'Excluir' Action "AxDeleta" OPERATION 5 ACCESS 0
 Return aRotina
+
