@@ -1,7 +1,6 @@
 #INCLUDE "RWMAKE.CH"
 #INCLUDE "PROTHEUS.CH"
 #INCLUDE "TOTVS.CH"
-#INCLUDE "FIVEWIN.CH"
 #INCLUDE "FWMBROWSE.CH"
 #INCLUDE "FWMVCDEF.CH"
 
@@ -43,37 +42,61 @@ Gravação do modelo da atualização A5_FABR com Z1_DESC, pelo campo A5_XFABR
 @return oModel
 /*/
 //-----------------------------------------------------------------------------
-Static Function AtualizarA5_XFABR(oModel)
-Local lRet := .T. 
-Local cSQL := ""
+Class AtualizarA5Model
+   Data A5_XFABR, A5_FABR, ZA1_DESC, ZA1_COD,cSQL
 
-If oModel == Nil	//-- É realizada chamada com modelo nulo para verificar se a função existe
-	Return lRet 
-EndIf
+   Method AtualizarA5_FABR(cA5_XFABR)
+   Local cSQL := ""
+ 
+      // Construa a instrução SQL para atualizar A5_FABR com ZA1_DESC
+      cSQL := "UPDATE " + RetSqlName("SA5") + ;
+              " SET A5_FABR = ZA1_DESC" + ;
+              " WHERE A5_XFABR = '" + cA5_XFABR + "'"
 
-Local cA5_FABR := oModel:GetValue("A5_FABR")
-Local cZ1_DESC := oModel:GetValue("Z1_DESC")
-Local cZ1_COD := oModel:GetValue("Z1_COD")
+      // Início da transação
+      BeginTrans()
 
-BeginTran()
+      // Execução da atualização
+      If (TCSQLExec(cSQL) <> 0)
+         // Se houver um erro, emita uma mensagem de erro
+         Help(,, "SeuModel:AtualizarA5_FABR",, "Erro ao atualizar A5_FABR", 1, 0)
+         // Desfaça a transação
+         Rollback()
+         Return .F.
+      EndIf
 
-FwFormAtualizarA5_XFABR(oModel)  // Grava o Modelo     
+      // Fim da transação
+      Commit()
+      Return .T.
+   EndMethod
 
-cSQL := "UPDATE " + RetSqlName("Z1_DESC") + " SET A5_FABR = 'Z1_DESC' " +;
-        " WHERE A5_XFABR = ' ' AND A5_FABR = '" + cA5_FABR + "' AND Z1_DESC = '" + cZ1_DESC + "' AND Z1_COD = '" + cZ1_COD + "'" 
-                                                  
-If (nError := TCSQLExec(cSQL)) <> 0
-	// Se houver erro, emita uma mensagem
-   Help(,,"AtualizarA5_XFABR",, AllTrim(Str(nError)) + "-" + TCSQLError(), 1, 0)
-   //Desfaça a transação
-   DisarmTran()
-   // Atualização não foi bem-sucedida
-   lRet := .F. 
-EndIf
+   Method AtualizarA5_XFABR(cA5_FABR, cZA1_DESC, cZA1_COD)
+      Local cSQL := ""
 
-EndTran()
+      // Construa a instrução SQL para atualizar A5_XFABR
+      cSQL := "UPDATE " + RetSqlName("ZA1") + ;
+              " SET A5_XFABR = 'ZA1_DESC'" + ;
+              " WHERE A5_FABR = '" + cA5_FABR + "' AND ZA1_DESC = '" + cZA1_DESC + "' AND ZA1_COD = '" + cZA1_COD + "'"
 
-Return lRet
+      // Início da transação
+      BeginTrans()
+
+      // Execução da atualização
+      If (TCSQLExec(cSQL) <> 0)
+         // Se houver um erro, emita uma mensagem de erro
+         Help(,, "SeuModel:AtualizarA5_XFABR",, "Erro ao atualizar A5_XFABR", 1, 0)
+         // Desfaça a transação
+         Rollback()
+         Return .F.
+      EndIf
+
+      // Fim da transação
+      Commit()
+      Return .T.
+   EndMethod
+EndClass
+
+
 
 
 // - Ativa o Objeto Browser para sua exibicao.
@@ -89,4 +112,22 @@ ADD OPTION aRotina Title 'Incluir' Action "AxInclui" OPERATION 3 ACCESS 0
 ADD OPTION aRotina Title 'Alterar' Action "AxAltera" OPERATION 4 ACCESS 0
 ADD OPTION aRotina Title 'Excluir' Action "AxDeleta" OPERATION 5 ACCESS 0
 Return aRotina
+**************************************************************************************************************************************************************************
+Class AtualizarA5Controller
+   Method AtualizarCampos(cA5_XFABR, cA5_FABR, cZ1_DESC, cZ1_COD)
+      Local oModel := AtualizarA5Model():New()
+
+      // Chamada para atualizar A5_FABR com Z1_DESC
+      If !oModel:AtualizarA5_FABR(cA5_XFABR)
+         // Tratar erro, se necessário
+         Return
+      EndIf
+
+      // Chamada para atualizar A5_XFABR com base em A5_FABR, Z1_DESC e Z1_COD
+      If !oModel:AtualizarA5_XFABR(cA5_FABR, cZ1_DESC, cZ1_COD)
+         // Tratar erro, se necessário
+         Return
+      EndIf
+   EndMethod
+EndClass
 
