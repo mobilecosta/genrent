@@ -58,8 +58,6 @@ Function AxDeleta(cAlias,nReg,nOpc,cTransact,aCpos,aButtons,aParam,aAuto,lMaximi
 // Função principal que chama AxInclui
 User Function fCadZA1M(nOpc)
 	Local cTudoOk := "U_fUpdZA1()"
-	// Parâmetros adicionais conforme necessário
-	Local aParam := []
 
 	If nOpc == 3	// Inclusão
 		AxInclui("ZA1", 0, 3, ,,,cTudoOk)
@@ -74,20 +72,18 @@ Return
 
 /*/ {Protheus.doc} Function
 // Função estática que faz o reclock e o update
+*/
 
 User Function fUpdZA1()
-   Local cA5_FABR := M->A5_XFABR
-   Local cZ1_DESC := M->Z1_DESC
-
    // Construa a instrução SQL para realizar o update
    Local cSQL := "UPDATE " + RetSqlName("SA5") + ;
-                    "SET A5_FABR = '" + cZ1_DESC + "'" + ;
-                 " WHERE A5_FILIAL = '" + xFilial("SA5") + "' AND A5_XFABR = '" + cA5_FABR + "'"
+                   " SET A5_FABR = '" + M->ZA1_FABRI + "'" + ;
+                 " WHERE A5_FILIAL = '" + xFilial("SA5") + "' AND A5_XFABR = '" + M->ZA1_CODIGO + "'"
 
    // Execução do update
    If (TCSQLExec(cSQL) <> 0)
       // Se houver um erro, emita uma mensagem de erro
-      Help(,, "fUpdZA1",, "Erro ao atualizar A5_FABR", 1, 0)
+      Help(,, "fUpdZA1",, "Erro ao atualizar A5_FABR [" + cSQL + "]", 1, 0)
       Return .F.
    EndIf
 
