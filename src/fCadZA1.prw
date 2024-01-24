@@ -42,9 +42,9 @@ Local aRotina := {}
 // - Adciona itens ao Array aRotina.
 ADD OPTION aRotina Title 'Pesquisar' Action "AxPesqui" OPERATION 1 ACCESS 0
 ADD OPTION aRotina Title 'Visualizar' Action "AxVisual" OPERATION 2 ACCESS 0
-ADD OPTION aRotina Title 'Incluir' Action "fCadZA1M(3)" OPERATION 3 ACCESS 0
-ADD OPTION aRotina Title 'Alterar' Action "fCadZA1M(4)" OPERATION 4 ACCESS 0
-ADD OPTION aRotina Title 'Excluir' Action "fCadZA1M(5)" OPERATION 5 ACCESS 0
+ADD OPTION aRotina Title 'Incluir' Action "U_fCadZA1M(3)" OPERATION 3 ACCESS 0
+ADD OPTION aRotina Title 'Alterar' Action "U_fCadZA1M(4)" OPERATION 4 ACCESS 0
+ADD OPTION aRotina Title 'Excluir' Action "U_fCadZA1M(5)" OPERATION 5 ACCESS 0
 
 Return aRotina
 **************************************************************************************************************************************************************************
@@ -62,9 +62,9 @@ User Function fCadZA1M(nOpc)
 	Local aParam := []
 
 	If nOpc == 3	// Inclusão
-		AxInclui("ZA1", 0, aParam, ,,cTudoOk)
+		AxInclui("ZA1", 0, 3, ,,,cTudoOk)
 	ElseIf nOpc == 4
-		AxAltera("ZA1", ZA1->(Recno()), aParam, ,,cTudoOk)
+		AxAltera("ZA1", ZA1->(Recno()), 4, ,,,,cTudoOk)
 	ElseIf nOpc == 5
 		AxDeleta("ZA1", ZA1->(Recno()), 5)
 	EndIf
